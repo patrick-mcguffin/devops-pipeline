@@ -15,10 +15,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'  # Speeds up runs by caching dependencies
+          cache: 'npm'  # Now works because package-lock.json exists
 
       - name: Install dependencies
-        run: npm ci  # Use 'npm ci' for reproducible installs in CI (better than 'npm install')
+        run: npm ci  # Clean, exact install using the lock file
 
       - name: Run tests
         run: npm test
